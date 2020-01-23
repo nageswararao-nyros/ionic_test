@@ -66,16 +66,6 @@
       "APP_NAME": "androidTest"
     }
   },
-  "cordova-plugin-googleplus": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-googleplus"
-    },
-    "is_top_level": true,
-    "variables": {
-      "REVERSED_CLIENT_ID": "59722761487-r4b90qcek8ttn1c1fjfv787no94bpjjn.apps.googleusercontent.com"
-    }
-  },
   "twitter-connect-plugin": {
     "source": {
       "type": "registry",

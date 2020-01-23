@@ -557,6 +557,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ionic-native/onesignal/ngx */ "./node_modules/@ionic-native/onesignal/ngx/index.js");
 /* harmony import */ var _ionic_native_unique_device_id_ngx__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @ionic-native/unique-device-id/ngx */ "./node_modules/@ionic-native/unique-device-id/ngx/index.js");
 /* harmony import */ var _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @ionic-native/network/ngx */ "./node_modules/@ionic-native/network/ngx/index.js");
+/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
+
 
 
 
@@ -574,7 +576,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 let AppComponent = class AppComponent {
-    constructor(platform, splashScreen, statusBar, storage, router, alertController, camera, actionsheetCtrl, webview, events, fb, oneSignal, uniqueDevice_id, network) {
+    constructor(platform, splashScreen, statusBar, storage, router, alertController, camera, actionsheetCtrl, webview, events, fb, oneSignal, uniqueDevice_id, network, geoLocation) {
         this.platform = platform;
         this.splashScreen = splashScreen;
         this.statusBar = statusBar;
@@ -589,6 +591,7 @@ let AppComponent = class AppComponent {
         this.oneSignal = oneSignal;
         this.uniqueDevice_id = uniqueDevice_id;
         this.network = network;
+        this.geoLocation = geoLocation;
         this.appPages = [
             {
                 title: 'Home',
@@ -835,6 +838,18 @@ let AppComponent = class AppComponent {
                     this.data_re_connection = false;
                 });
             });
+            this.geoLocation.watchPosition({ enableHighAccuracy: true }).subscribe((data) => {
+                console.log(data.coords);
+                console.log(data.coords);
+                alert(JSON.stringify(data.coords));
+            }, (err) => {
+                alert(err);
+            });
+            this.geoLocation.getCurrentPosition().then((resp) => {
+                alert(JSON.stringify(resp));
+            }).catch((error) => {
+                console.log('Error getting location', error);
+            });
             // // Notification was really clicked/opened
             // this.oneSignal.handleNotificationOpened().subscribe(data => {
             //   // Just a note that the data is a different place here!
@@ -859,7 +874,8 @@ AppComponent.ctorParameters = () => [
     { type: _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_9__["Facebook"] },
     { type: _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_10__["OneSignal"] },
     { type: _ionic_native_unique_device_id_ngx__WEBPACK_IMPORTED_MODULE_11__["UniqueDeviceID"] },
-    { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_12__["Network"] }
+    { type: _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_12__["Network"] },
+    { type: _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_13__["Geolocation"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])(),
@@ -884,7 +900,8 @@ AppComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _ionic_native_facebook_ngx__WEBPACK_IMPORTED_MODULE_9__["Facebook"],
         _ionic_native_onesignal_ngx__WEBPACK_IMPORTED_MODULE_10__["OneSignal"],
         _ionic_native_unique_device_id_ngx__WEBPACK_IMPORTED_MODULE_11__["UniqueDeviceID"],
-        _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_12__["Network"]])
+        _ionic_native_network_ngx__WEBPACK_IMPORTED_MODULE_12__["Network"],
+        _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_13__["Geolocation"]])
 ], AppComponent);
 
 

@@ -4,7 +4,6 @@ import { Storage } from '@ionic/storage';
 import { Router, ActivatedRoute } from '@angular/router'
 import { ToastController } from '@ionic/angular';
 import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 // import { Pinterest } from '@ionic-native/pinterest/ngx';
 import { TwitterConnect } from '@ionic-native/twitter-connect/ngx';
 import { MenuController } from '@ionic/angular'
@@ -26,7 +25,6 @@ export class LoginComponent implements OnInit {
   error:boolean = false
   err_data = ""
   constructor(
-    private googlePlus: GooglePlus, 
     private fb: Facebook, 
     private formBuilder: FormBuilder, 
     private toastController: ToastController, 

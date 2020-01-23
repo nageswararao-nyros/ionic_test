@@ -13,7 +13,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { Facebook } from '@ionic-native/facebook/ngx';
-import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { Pinterest } from '@ionic-native/pinterest/ngx';
 import { TwitterConnect } from '@ionic-native/twitter-connect/ngx';
 import { OneSignal } from '@ionic-native/onesignal/ngx';
@@ -45,7 +44,6 @@ import { DatePicker } from '@ionic-native/date-picker/ngx';
   providers: [
     StatusBar,
     Facebook,
-    GooglePlus,
     WebView,
     OneSignal,
     Geolocation,

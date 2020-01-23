@@ -33,6 +33,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-datepicker.DatePicker",
+      "file": "plugins/cordova-plugin-datepicker/www/android/DatePicker.js",
+      "pluginId": "cordova-plugin-datepicker",
+      "clobbers": [
+        "datePicker"
+      ]
+    },
+    {
       "id": "cordova-plugin-device.device",
       "file": "plugins/cordova-plugin-device/www/device.js",
       "pluginId": "cordova-plugin-device",
@@ -49,12 +57,18 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
-      "id": "cordova-plugin-googleplus.GooglePlus",
-      "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
-      "pluginId": "cordova-plugin-googleplus",
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
       "clobbers": [
-        "window.plugins.googleplus"
+        "navigator.geolocation"
       ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
     },
     {
       "id": "cordova-plugin-ionic-keyboard.keyboard",
@@ -136,35 +150,14 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "clobbers": [
         "TwitterConnect"
       ]
-    },
-    {
-      "id": "cordova-plugin-datepicker.DatePicker",
-      "file": "plugins/cordova-plugin-datepicker/www/android/DatePicker.js",
-      "pluginId": "cordova-plugin-datepicker",
-      "clobbers": [
-        "datePicker"
-      ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.geolocation",
-      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "clobbers": [
-        "navigator.geolocation"
-      ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.PositionError",
-      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "runs": true
     }
   ];
   module.exports.metadata = {
     "cordova-plugin-camera": "4.1.0",
+    "cordova-plugin-datepicker": "0.9.3",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-facebook4": "6.2.0",
-    "cordova-plugin-googleplus": "8.2.1",
+    "cordova-plugin-geolocation": "4.0.2",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-ionic-webview": "4.1.3",
     "cordova-plugin-network-information": "2.0.2",
@@ -174,8 +167,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-sqlite-storage": "4.0.0",
     "onesignal-cordova-plugin": "2.8.1",
-    "twitter-connect-plugin": "0.6.0",
-    "cordova-plugin-datepicker": "0.9.3",
-    "cordova-plugin-geolocation": "4.0.2"
+    "twitter-connect-plugin": "0.6.0"
   };
 });

@@ -366,8 +366,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
 /* harmony import */ var _reservation_data_service__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../reservation-data.service */ "./src/app/reservation-data.service.ts");
 /* harmony import */ var _ionic_storage__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @ionic/storage */ "./node_modules/@ionic/storage/fesm2015/ionic-storage.js");
-/* harmony import */ var _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @ionic-native/geolocation/ngx */ "./node_modules/@ionic-native/geolocation/ngx/index.js");
-
 
 
 
@@ -379,13 +377,12 @@ let HomePage = class HomePage {
     // data_loaded:boolean = false
     // future_reservations:any = []
     // @Output() getUser = new EventEmitter<any>();
-    constructor(storage, _resService, http, toast, router, geoLocation) {
+    constructor(storage, _resService, http, toast, router) {
         this.storage = storage;
         this._resService = _resService;
         this.http = http;
         this.toast = toast;
         this.router = router;
-        this.geoLocation = geoLocation;
         this.employees_data = [];
         this.carousel_imgs = [
             "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ5r9mIu9Wv92SlY1v-t5m8kDdhGqbI8hduuPsxfYCYH5FQ1E7K",
@@ -400,40 +397,18 @@ let HomePage = class HomePage {
         };
     }
     ngOnInit() {
-        this.geoLocation.watchPosition({ enableHighAccuracy: true }).subscribe((data) => {
-            console.log(data.coords);
-            console.log(data.coords);
-            alert(JSON.stringify(data.coords));
-        });
-        this.geoLocation.getCurrentPosition().then((resp) => {
-            alert(JSON.stringify(resp));
-        }).catch((error) => {
-            console.log('Error getting location', error);
-        });
-    }
-    ionViewDidEnter() {
-        this.geoLocation.watchPosition({ enableHighAccuracy: true }).subscribe((data) => {
-            console.log(data.coords);
-            console.log(data.coords);
-            alert(JSON.stringify(data.coords));
-        });
-        this.geoLocation.getCurrentPosition().then((resp) => {
-            alert(JSON.stringify(resp));
-        }).catch((error) => {
-            console.log('Error getting location', error);
-        });
-    }
-    ionViewWillEnter() {
-        this.geoLocation.watchPosition({ enableHighAccuracy: true }).subscribe((data) => {
-            console.log(data.coords);
-            console.log(data.coords);
-            alert(JSON.stringify(data.coords));
-        });
-        this.geoLocation.getCurrentPosition().then((resp) => {
-            alert(JSON.stringify(resp));
-        }).catch((error) => {
-            console.log('Error getting location', error);
-        });
+        // alert("Data Called Initally from Oninit")
+        //   this.data_loaded = true
+        // this._resService.getAllResData("future", 2).then(res=>{
+        //  	// console.log(res, "TTTTT")
+        //      // alert(JSON.stringify(res))
+        //  	this.future_reservations = res.data
+        // })
+        // this.storage.get("current_user_info").then(res=>{
+        //   // console.log(res, "UUUU")
+        //   this.getUser = JSON.parse(res)
+        //   console.log(this.getUser, "Emit")
+        // })
     }
 };
 HomePage.ctorParameters = () => [
@@ -441,8 +416,7 @@ HomePage.ctorParameters = () => [
     { type: _reservation_data_service__WEBPACK_IMPORTED_MODULE_5__["ReservationDataService"] },
     { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
     { type: _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"] },
-    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] },
-    { type: _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_7__["Geolocation"] }
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
 HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -454,8 +428,7 @@ HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         _reservation_data_service__WEBPACK_IMPORTED_MODULE_5__["ReservationDataService"],
         _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"],
         _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"],
-        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"],
-        _ionic_native_geolocation_ngx__WEBPACK_IMPORTED_MODULE_7__["Geolocation"]])
+        _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"]])
 ], HomePage);
 
 
